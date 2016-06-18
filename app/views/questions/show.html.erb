@@ -2,6 +2,19 @@
 
 <h2><%=@question.title%></h2>
 
+	<small>Submitted <%=time_ago_in_words(@question.created_at)%> ago by <%=@question.user.name%> </small><br>
+
+	<div>
+		<button>
+	<%=link_to like_question_path(@question), method: :put do %>Rate up 		
+		<%=@question.get_upvotes.size%></button>
+	<%end%>
+	<button>
+	<%=link_to dislike_question_path(@question), method: :put do %>Rate down 		
+		<%=@question.get_downvotes.size%></button>
+	<%end%>
+</div>
+
 <%if @question.user==current_user%>
 <%=link_to "Edit", edit_question_path(@question) %>
 <%= link_to "Delete", @question, method: :delete, data: {confirm: "Are you sure?"}%><br>

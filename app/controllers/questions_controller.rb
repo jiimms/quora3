@@ -37,6 +37,16 @@ class QuestionsController < ApplicationController
   	redirect_to root_path
   end
 
+  def upvote 
+  	@question.upvote_by current_user
+  	redirect_to :back
+  end
+
+  def downvote
+  	@question.downvote_by current_user
+  	redirect_to :back
+  end
+
   private 
 		def set_q
 			@question=Question.find(params[:id])
