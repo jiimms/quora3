@@ -1,2 +1,9 @@
-<h1>Questions#edit</h1>
-<p>Find me in app/views/questions/edit.html.erb</p>
+<h1>Edit Question</h1>
+
+<%= form_for @question do |q|%>
+<%= q.label :title, "Ask"%>
+<%= q.text_area :title %><br>
+<%=q.submit "Update"%>
+<%end%>
+
+<%=link_to "Back", root_path%>
