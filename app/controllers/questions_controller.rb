@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-	before_action :set_q, except: [:index, :new, :create]
+	before_action :set_q, only: [:edit, :update, :show, :destroy]
 	 before_action :authenticate_user!, except: [:index, :show, ]
   def new
   	@question=current_user.questions.build
@@ -38,11 +38,13 @@ class QuestionsController < ApplicationController
   end
 
   def upvote 
+    @question=Question.find(params[:id])
   	@question.upvote_by current_user
   	redirect_to :back
   end
 
   def downvote
+    @question=Question.find(params[:id])
   	@question.downvote_by current_user
   	redirect_to :back
   end

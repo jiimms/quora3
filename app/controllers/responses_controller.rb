@@ -31,11 +31,22 @@ class ResponsesController < ApplicationController
 	end
 
 	def destroy
-		@post = Post.find(params[:post_id])
-		@comment = @post.comments.find(params[:id])
-		@comment.destroy
-		redirect_to post_path(@post)
+		@question = Question.find(params[:question_id])
+		@response = @question.responses.find(params[:id])
+		@response.destroy
+		redirect_to question_path(@question)
 	end
 
+def upvote 
+	
+	@response= Response.find(params[:id])
+  	@response.upvote_by current_user
+  	redirect_to :back
+  end
 
+  def downvote 
+  	@response= Response.find(params[:id])
+  	@response.downvote_by current_user
+  	redirect_to :back
+  end
 end

@@ -22,11 +22,5 @@
 
 <br><%=@question.responses.count%> Answers <br>
 
-<% @question.responses.each do |qr|%>
-<p><%=qr.user.name.split[0]%><br>
-<%= qr.answer%><br>
-<small><%=time_ago_in_words(qr.created_at)%> ago </small></p><br>
-
-<%end%>
-
+<%= render @question.responses%> <br>
 <h3><%= render 'responses/form'%>
