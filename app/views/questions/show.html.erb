@@ -26,6 +26,7 @@
 <p><%=qr.user.name.split[0]%><br>
 <%= qr.answer%><br>
 <small><%=time_ago_in_words(qr.created_at)%> ago </small></p><br>
+
 <%end%>
 
 <h3><%= render 'responses/form'%>
