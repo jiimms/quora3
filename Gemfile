@@ -46,3 +46,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'simple_form', '~> 3.2', '>= 3.2.1'

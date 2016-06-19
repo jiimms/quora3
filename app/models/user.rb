@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, password_length: 3..120
          has_many :questions
+         has_many :responses
 end
