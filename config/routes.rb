@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pages/project'
+
   devise_for :users
   resources :questions do
     member do
