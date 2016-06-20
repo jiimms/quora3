@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'pages/project'
+  post 'questions/search_query'
 
   devise_for :users
   resources :questions do
