@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, password_length: 3..120
          has_many :questions
          has_many :responses
+         has_many :favorites
+				 has_many :favorite_questions, through: :favorites, source: :favorited, source_type: 'Question'
 end

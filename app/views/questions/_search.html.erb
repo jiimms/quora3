@@ -1,0 +1,8 @@
+<% if @questions.blank? %>
+  <h4>There are no Questions containing the term <%= params[:search] %>.</h4>
+<% end %>
+
+<%=form_tag(questions_path, :method => 'get', id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search"%>
+<%= submit_tag "Search", :name => nil%>
+<% end%>

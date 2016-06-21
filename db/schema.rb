@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619033823) do
+ActiveRecord::Schema.define(version: 20160620170851) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "content"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 20160619033823) do
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
   add_index "answers", ["user_id"], name: "index_answers_on_user_id"
 
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "favorited_id"
+    t.string   "favorited_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "favorites", ["favorited_type", "favorited_id"], name: "index_favorites_on_favorited_type_and_favorited_id"
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
+
   create_table "questions", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
@@ -32,6 +43,11 @@ ActiveRecord::Schema.define(version: 20160619033823) do
   end
 
   add_index "questions", ["user_id"], name: "index_questions_on_user_id"
+
+  create_table "questions_users", id: false, force: :cascade do |t|
+    t.integer "question_id", null: false
+    t.integer "user_id",     null: false
+  end
 
   create_table "responses", force: :cascade do |t|
     t.text     "answer"

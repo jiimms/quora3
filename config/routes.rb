@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'pages/project'
   post 'questions/search_query'
-
+  resources :favorite_questions, only: [:create, :destroy]
   devise_for :users
   resources :questions do
     member do
