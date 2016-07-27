@@ -1,0 +1,6 @@
+<h1>My Favorites</h1>
+
+
+	<% current_user.favorite_questions.each do |fq|%>
+		<%= link_to fq.title, question_path(fq)%><br>
+	<%end%>

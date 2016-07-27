@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
          has_many :responses
          has_many :favorites
 				 has_many :favorite_questions, through: :favorites, source: :favorited, source_type: 'Question'
+				 has_one :userprofile
 end

@@ -2,8 +2,8 @@
 <%= render 'questions/search'%>
 
 <%@questions.each do |q|%>
-	<h2><%=link_to q.title, question_path(q), class: 'link-to-text-color'%> </h2><br>
-	<small>Submitted <%=time_ago_in_words(q.created_at)%> ago by <%=q.user.name%> </small><br>
+	<h2><%=link_to q.title, question_path(q), class: 'link-to-text-color'%> <%= link_to "Answer",question_path(q) %><br>
+	<small>Submitted <%=time_ago_in_words(q.created_at)%> ago by <%=q.user.name%> </small></h2><br>
 	<div>
 		<%if q.user==current_user%>
 			<%=link_to "Edit", edit_question_path(q) %>

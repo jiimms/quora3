@@ -1,8 +1,6 @@
-
-
-<p><%=response.user.name.split[0]%><br>
+<p><%=response.user.name.split[0]%>: <small><%=time_ago_in_words(response.created_at)%> ago </small><br>
 <%=response.answer	%><br>
-<small><%=time_ago_in_words(response.created_at)%> ago </small></p><br>
+</p><br>
 
 <%= link_to "Edit", edit_question_response_path(response.question, response)%>
 
